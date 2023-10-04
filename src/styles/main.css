@@ -1,0 +1,472 @@
+* {
+  padding: 0px;
+  margin: 0px;
+  border: none;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+* .main {
+  width: 100%;
+  min-height: 100vh;
+}
+* .main .header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  border-bottom: 1px solid rgba(112, 128, 144, 0.076);
+}
+* .main .header h1 {
+  font-size: 16px;
+  color: rgb(143, 183, 242);
+}
+* .main .projects {
+  padding: 12px;
+  background-color: rgb(238, 244, 252);
+  min-height: 100vh;
+  display: flex;
+  width: 94%;
+  align-items: center;
+  flex-direction: column;
+  gap: 8px;
+}
+* .main .projects ul {
+  display: flex;
+  width: 95%;
+  align-items: center;
+  flex-direction: column;
+  gap: 8px;
+}
+* .main .projects ul .project {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  list-style: none;
+  width: 93%;
+  padding: 12px;
+  border-left: 4px rgb(143, 183, 242) solid;
+  border-radius: 4px;
+  color: #7ca0d7;
+  background-color: white;
+  -webkit-box-shadow: 0px 2px 8px 0px rgba(34, 60, 80, 0.1);
+  -moz-box-shadow: 0px 2px 8px 0px rgba(34, 60, 80, 0.1);
+  box-shadow: 0px 2px 8px 0px rgba(34, 60, 80, 0.1);
+  font-size: 16px;
+  cursor: pointer;
+}
+* .main .projects ul .project .project-action {
+  display: flex;
+  gap: 12px;
+  color: rgba(124, 37, 37, 0.5411764706);
+}
+* .main .projects ul .project .project-action button {
+  background-color: inherit;
+}
+* .main .projects .add-project-btn {
+  list-style: none;
+  width: 96%;
+  padding: 8px;
+  border-radius: 4px;
+  color: rgb(124, 160, 215);
+  background-color: white;
+  -webkit-box-shadow: 0px 2px 8px 0px rgba(34, 60, 80, 0.1);
+  -moz-box-shadow: 0px 2px 8px 0px rgba(34, 60, 80, 0.1);
+  box-shadow: 0px 2px 8px 0px rgba(34, 60, 80, 0.1);
+  font-size: 16px;
+  cursor: pointer;
+}
+* .main .projects .add-project-btn:hover {
+  background-color: rgba(159, 192, 242, 0.315);
+}
+* .main .tasks-common-section {
+  padding: 12px;
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  background-color: rgb(238, 244, 252);
+  width: 95%;
+}
+* .main .tasks-common-section .scroll-section {
+  display: flex;
+  gap: 10px;
+  width: 920px;
+}
+* .main .tasks-common-section .each-tasks-section {
+  scroll-snap-align: center;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  height: 90vh;
+  width: 330px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 5px;
+}
+* .main .tasks-common-section .each-tasks-section .head {
+  display: flex;
+  justify-content: space-between;
+  width: 96%;
+  align-items: center;
+}
+* .main .tasks-common-section .each-tasks-section .head button {
+  background-color: inherit;
+  height: 20px;
+  font-size: 16px;
+  color: slategray;
+}
+* .main .tasks-common-section .each-tasks-section .scroll-zone {
+  overflow-y: scroll;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-right: 8px;
+  padding-left: 8px;
+  height: 600px;
+  padding-top: 8px;
+}
+* .main .tasks-common-section .each-tasks-section h3 {
+  font-weight: 400;
+  font-size: 18px;
+}
+* .main .tasks-common-section .task {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 89%;
+  padding: 12px;
+  border-left: 4px rgb(192, 60, 60) solid;
+  border-radius: 4px;
+  color: slategray;
+  background-color: white;
+  -webkit-box-shadow: 0px 2px 8px 0px rgba(34, 60, 80, 0.1);
+  -moz-box-shadow: 0px 2px 8px 0px rgba(34, 60, 80, 0.1);
+  box-shadow: 0px 2px 8px 0px rgba(34, 60, 80, 0.1);
+  font-size: 14px;
+  padding-right: 8px;
+  cursor: pointer;
+}
+* .main .tasks-common-section .task .task-priority {
+  background-color: rgba(192, 60, 60, 0.731);
+  border-radius: 5px;
+  padding: 2px 4px;
+  color: rgb(255, 255, 255);
+}
+* .main .tasks-common-section .search {
+  display: flex;
+  padding: 2px;
+  margin-bottom: 8px;
+  align-items: start;
+  gap: 8px;
+  flex-direction: column;
+}
+* .main .tasks-common-section .search .search-input {
+  height: 30px;
+  width: 82%;
+  padding: 2px;
+  padding-left: 8px;
+  border-radius: 5px;
+  color: rgba(119, 166, 237, 0.915);
+  outline-color: rgba(143, 183, 242, 0.609);
+  border: 1px solid rgba(143, 183, 242, 0.609);
+}
+* .main .tasks-common-section .search .search-input::placeholder {
+  color: rgba(187, 196, 210, 0.736);
+}
+* .modal-window-bg {
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.18);
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  position: fixed;
+  justify-content: center;
+  align-items: center;
+}
+* .modal-window-bg .project-adder_window {
+  width: 300px;
+  height: 180px;
+  background-color: white;
+  border-radius: 4px;
+  margin-bottom: 280px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  gap: 18px;
+}
+* .modal-window-bg h2 {
+  font-size: 14px;
+  color: rgb(143, 183, 242);
+}
+* .modal-window-bg input {
+  width: 80%;
+  border: 1px solid rgba(143, 183, 242, 0.609);
+  padding: 8px;
+  border-radius: 5px;
+  color: rgba(119, 166, 237, 0.915);
+  outline-color: rgba(143, 183, 242, 0.609);
+}
+* .modal-window-bg input::placeholder {
+  color: rgba(187, 196, 210, 0.736);
+}
+* .modal-window-bg button {
+  width: 140px;
+  height: 40px;
+  border-radius: 4px;
+  color: white;
+  background-color: rgba(143, 183, 242, 0.609);
+}
+* .modal-window-bg .task-adder-section {
+  height: 540px;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: white;
+  padding: 12px;
+  border-radius: 5px;
+}
+* .modal-window-bg .task-adder-section .task-adder-btn-section {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+* .modal-window-bg .task-adder-section .task-adder {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  gap: 16px;
+}
+* .modal-window-bg .task-adder-section .task-adder .finish-task-section {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+  width: 85%;
+  gap: 8px;
+}
+* .modal-window-bg .task-adder-section .task-adder .finish-task-section .finish-task-title {
+  color: slategray;
+  font-size: 12px;
+}
+* .modal-window-bg .task-adder-section .task-adder .priority-section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-left: 44px;
+}
+* .modal-window-bg .task-adder-section .task-adder .priority-section h3 {
+  font-size: 14px;
+  color: rgb(143, 183, 242);
+}
+* .modal-window-bg .task-adder-section .task-adder .priority-section .priority-options {
+  display: flex;
+  gap: 8px;
+  font-size: 12px;
+}
+* .modal-window-bg .task-adder-section .task-adder .priority-section .priority-options .option {
+  display: flex;
+  width: 62px;
+  gap: 4px;
+  align-items: center;
+  color: slategray;
+  background-color: inherit;
+}
+* .modal-window-bg .task-adder-section .task-adder .priority-section .priority-options .option .option-color {
+  border-radius: 100%;
+  width: 8px;
+  height: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+* .modal-window-bg .task-adder-section .task-adder .priority-section .priority-options .option .red {
+  border: rgb(192, 60, 60) solid 1px;
+}
+* .modal-window-bg .task-adder-section .task-adder .priority-section .priority-options .option .green {
+  border: rgba(60, 192, 89, 0.731) solid 1px;
+}
+* .modal-window-bg .task-adder-section .task-adder .priority-section .priority-options .option .yellow {
+  border: rgba(192, 188, 60, 0.731) solid 1px;
+}
+* .modal-window-bg .task-adder-section .task-adder .priority-section .priority-options .option .selected-red {
+  border-radius: 100%;
+  background-color: rgb(192, 60, 60);
+  width: 6px;
+  height: 6px;
+}
+* .modal-window-bg .task-adder-section .task-adder .priority-section .priority-options .option .selected-green {
+  border-radius: 100%;
+  background-color: rgba(60, 192, 89, 0.731);
+  width: 6px;
+  height: 6px;
+}
+* .modal-window-bg .task-adder-section .task-adder .priority-section .priority-options .option .selected-yellow {
+  border-radius: 100%;
+  background-color: rgba(192, 188, 60, 0.731);
+  width: 6px;
+  height: 6px;
+}
+* .modal-window-bg .add-file-section button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  cursor: pointer;
+  background-color: inherit;
+  width: 76px;
+  height: 30px;
+  border-radius: 5px;
+  padding: 4px;
+}
+* .modal-window-bg .add-file-section button p {
+  font-size: 12px;
+  color: #708090;
+}
+* .modal-window-bg .add-file-section button:hover {
+  background-color: rgba(193, 209, 235, 0.4588235294);
+}
+* .modal-window-bg .add-file-section button input {
+  opacity: 0;
+  height: 0px;
+  width: 0px;
+  overflow: hidden;
+  padding: 0px;
+  margin: 0px;
+}
+* .modal-window-bg .add-file-section button .picture-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+* .modal-window-bg .add-file-section .picture-section {
+  display: flex;
+  width: 170px;
+  align-items: end;
+  gap: 8px;
+  margin-top: 8px;
+}
+* .modal-window-bg .add-file-section .picture-section img {
+  border-radius: 5px;
+}
+* .modal-window-bg .add-file-section .picture-section .other-files {
+  width: 66px;
+  height: 64px;
+  display: flex;
+  justify-content: end;
+  align-items: end;
+  padding: 8px;
+  padding-right: 12px;
+  background-color: rgba(157, 195, 232, 0.1960784314);
+  border-radius: 5px;
+}
+* .modal-window-bg .add-file-section .picture-section .other-files p {
+  display: inline;
+  color: #708090;
+}
+* .modal-window-bg .full-task-card {
+  width: 300px;
+  background-color: white;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  padding: 12px;
+  gap: 14px;
+}
+* .modal-window-bg .full-task-card .head .title {
+  font-weight: 600;
+}
+* .modal-window-bg .full-task-card .head .edit-task {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+* .modal-window-bg .full-task-card .description-section {
+  width: 94%;
+  text-align: start;
+}
+* .modal-window-bg .full-task-card .description-section p {
+  word-break: break-word;
+}
+* .modal-window-bg .full-task-card .files-section {
+  width: 296px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+* .modal-window-bg .full-task-card .files-section img {
+  border-radius: 5px;
+}
+* .modal-window-bg .full-task-card .date-section {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 94%;
+  text-align: start;
+}
+* .modal-window-bg .full-task-card .date-section p {
+  font-size: 12px;
+}
+* .modal-window-bg .more-action-section {
+  display: flex;
+  justify-content: start;
+  align-items: start;
+  width: 88%;
+  gap: 8px;
+}
+* .modal-window-bg .more-action-section .comment-open-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  cursor: pointer;
+  background-color: inherit;
+  width: 88px;
+  height: 30px;
+  border-radius: 5px;
+  padding: 4px;
+}
+* .modal-window-bg .more-action-section .comment-open-btn p {
+  font-size: 12px;
+  color: #708090;
+}
+* .modal-window-bg .more-action-section .comment-open-btn:hover {
+  background-color: rgba(193, 209, 235, 0.4588235294);
+}
+* .modal-window-bg .more-action-section .comment-open-btn img {
+  width: 18px;
+  height: 18px;
+}
+
+.dragOverTrackerRight {
+  position: fixed;
+  width: 24px;
+  margin-left: 375px;
+  height: 100%;
+  inset: 0;
+}
+
+.dragOverTrackerLeft {
+  position: fixed;
+  width: 24px;
+  margin-left: 0px;
+  height: 100%;
+  inset: 0;
+}
+
+.attantion {
+  width: 84%;
+  font-size: 12px;
+  color: rgba(166, 39, 39, 0.824);
+  margin-top: 8px;
+}
+
+/*# sourceMappingURL=main.css.map */
