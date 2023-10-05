@@ -1,9 +1,6 @@
 import { useDispatch } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
-import {
-  ASYNC_DELETE_PROJECT,
-  PROJECT_ID,
-} from "../../redux/reducers/projectsReducer";
+import { PROJECT_ID } from "../../redux/reducers/projectsReducer";
 
 export default function Project(props: { title: string; id: number }) {
   const navigate = useNavigate();
@@ -18,20 +15,6 @@ export default function Project(props: { title: string; id: number }) {
       }}
     >
       {props.title}
-      <div className="project-action">
-        <button onClick={() => {}}>
-          <img src="/svg/edit.svg" alt="edit project"></img>
-        </button>
-        <button
-          onClick={() => {
-            dispatch({ type: PROJECT_ID, payload: id });
-            dispatch({ type: ASYNC_DELETE_PROJECT });
-            // dispatch({ type: ASYNC_GET_PROJECTS });
-          }}
-        >
-          <img src="/svg/trash.svg" alt="delete project"></img>
-        </button>
-      </div>
     </li>
   );
 }

@@ -3,6 +3,7 @@ const defaultState = {
   projectAdderOpened: false,
   projectName: "",
   projectId: null,
+  isRouting: false,
 };
 export const GET_PROJECTS = "GET_PROJECTS";
 export const GET_PROJECT_NAME_FROM_INPUT = "GET_PROJECT_NAME_FROM_INPUT";
@@ -14,6 +15,7 @@ export const DELETE_PROJECT = "DELETE_PROJECT";
 export const ASYNC_GET_CHENGED_PROJECTS = "ASYNC_GET_CHENGED_PROJECTS";
 export const ASYNC_DELETE_PROJECT = "ASYNC_DELETE_PROJECT";
 export const PROJECT_ID = "PROJECT_ID";
+export const IS_ROUTING_CHECK = "IS_ROUTING_CHECK";
 export const projectsReducer = (
   state = defaultState,
   action: { type: string; payload: any }
@@ -34,6 +36,8 @@ export const projectsReducer = (
           (project: any) => project.id !== action.payload
         ),
       };
+    case IS_ROUTING_CHECK:
+      return { ...state, isRouting: action.payload };
     case PROJECT_ID:
       return { ...state, projectId: action.payload };
     default:

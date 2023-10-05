@@ -7,7 +7,9 @@ import {
   ASYNC_GET_PROJECTS,
   DELETE_PROJECT,
   GET_PROJECTS,
+  IS_ROUTING_CHECK,
 } from "../redux/reducers/projectsReducer";
+import { ProjectType } from "../types";
 
 async function getProjects() {
   const { data } = await supabase.from("projects").select();
@@ -24,12 +26,15 @@ async function addProject(title: string) {
 }
 function* addProjectWorker() {
   const title: string = yield select((state) => state.projects.projectName);
-  const data: { value: any } = yield addProject(title);
+  const data: { value: ProjectType[] } = yield addProject(title);
   yield put({ type: ADD_PROJECT, payload: data });
 }
-
 function* getProjectsWorker() {
-  const data: { value: any } = yield getProjects();
+  const data: { value: ProjectType[] } = yield getProjects();
+  if (data) {
+    yield put({ type: IS_ROUTING_CHECK, payload: true });
+  }
+
   yield put({ type: GET_PROJECTS, payload: data });
 }
 

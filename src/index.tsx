@@ -6,7 +6,6 @@ import Tasks from "./pages/Tasks/Tasks";
 import { Provider } from "react-redux";
 import { store } from "./redux/store/store";
 import "./styles/main.css";
-import Project from "./pages/Projects/Project";
 import Projects from "./pages/Projects/Projects";
 const router = createBrowserRouter([
   {

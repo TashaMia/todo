@@ -1,10 +1,13 @@
-import { useState } from "react";
+import { Dispatch, SetStateAction } from "react";
 
 export default function TaskPriorityOption(props: {
-  option: any;
-  setSelectedOption: any;
-  selectedOption: any;
-  setTaskPriority: any;
+  option: {
+    priority: string;
+    style: string;
+  };
+  setSelectedOption: Dispatch<SetStateAction<string>>;
+  selectedOption: string;
+  setTaskPriority: Dispatch<SetStateAction<string>>;
 }) {
   return (
     <button

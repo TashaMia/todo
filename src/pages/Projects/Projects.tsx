@@ -5,15 +5,16 @@ import {
   ASYNC_GET_PROJECTS,
   OPEN_PROJECT_ADDER,
 } from "../../redux/reducers/projectsReducer";
-import { ASYNC_GET_TASKS } from "../../redux/reducers/tasksReducer";
 import ProjectAdder from "../../ModalComponents/ProjectAdder";
+import { ProjectType, StateType } from "../../types";
 
 export default function Projects() {
-  const project = useSelector(
-    (state: { projects: any }) => state.projects.projects
-  );
+  const project = useSelector((state: StateType) => state.projects.projects);
   const projectAdderOppened = useSelector(
-    (state: { projects: any }) => state.projects.projectAdderOpened
+    (state: StateType) => state.projects.projectAdderOpened
+  );
+  const projectsLoaded = useSelector(
+    (state: StateType) => state.projects.isRouting
   );
   const dispatch = useDispatch();
   useEffect(() => {
@@ -30,17 +31,21 @@ export default function Projects() {
       >
         Add project
       </button>
-      <ul>
-        {project.length > 0 ? (
-          project.map((project: any, index: number) => {
-            return (
-              <Project key={index} title={project.title} id={project.id} />
-            );
-          })
-        ) : (
-          <li> проектов нет</li>
-        )}
-      </ul>
+      {projectsLoaded ? (
+        <ul>
+          {project?.length > 0 ? (
+            project?.map((project: ProjectType, index: number) => {
+              return (
+                <Project key={index} title={project.title} id={project.id} />
+              );
+            })
+          ) : (
+            <li> Add your first project</li>
+          )}
+        </ul>
+      ) : (
+        <span className="loader"></span>
+      )}
       {projectAdderOppened && <ProjectAdder />}
     </div>
   );

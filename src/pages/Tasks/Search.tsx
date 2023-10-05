@@ -4,11 +4,10 @@ import {
   ASYNC_SEARCH_TASK,
   WRITE_SEARCH_TASK,
 } from "../../redux/reducers/tasksReducer";
-import Task from "./Task";
 
 export default function Search() {
   const [search, setSearch] = useState("");
-  function inputHandler(e: any) {
+  function inputHandler(e: React.FormEvent<HTMLInputElement>) {
     setSearch(e.currentTarget.value);
   }
   const dispatch = useDispatch();

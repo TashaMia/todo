@@ -13,11 +13,11 @@ import FileAdder from "./FileAdder";
 export default function TaskAdder() {
   const priorityType = [
     {
-      priority: "hight",
+      priority: "high",
       style: "red",
     },
     {
-      priority: "light",
+      priority: "low",
       style: "green",
     },
     {
@@ -32,6 +32,7 @@ export default function TaskAdder() {
   const [taskPriority, setTaskPriority] = useState("hight");
   const [finishTask, setFinishTask] = useState("");
   const dispatch = useDispatch();
+
   function taskNameReader(e: React.FormEvent<HTMLInputElement>) {
     setTaskName(e.currentTarget.value);
     if (taskName.length >= 1) {
@@ -80,6 +81,7 @@ export default function TaskAdder() {
           <input
             type="text"
             placeholder="Enter task name"
+            autoFocus
             onInput={(e) => {
               taskNameReader(e);
             }}
@@ -126,7 +128,6 @@ export default function TaskAdder() {
             </div>
           </div>
           <div className="more-action-section">
-            {" "}
             <FileAdder />
           </div>
         </div>
@@ -150,7 +151,7 @@ export default function TaskAdder() {
               dispatch({ type: OPEN_TASK_ADDER, payload: false });
             }}
           >
-            Добавить задачу
+            Add task
           </button>
         </div>
       </div>

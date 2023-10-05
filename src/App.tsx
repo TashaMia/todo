@@ -1,11 +1,10 @@
 import { useSelector } from "react-redux";
 import TaskAdder from "./ModalComponents/TaskAdder";
-import Projects from "./pages/Projects/Projects";
-import ProjectAdder from "./ModalComponents/ProjectAdder";
 import { Outlet, useNavigate } from "react-router-dom";
+import { StateType } from "./types";
 function App() {
   const taskAdder = useSelector(
-    (state: { tasks: any }) => state.tasks.taskAdderOpened
+    (state: StateType) => state.tasks.taskAdderOpened
   );
   const navigate = useNavigate();
   return (

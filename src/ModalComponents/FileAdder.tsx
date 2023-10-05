@@ -1,14 +1,8 @@
-import {
-  ChangeEvent,
-  useEffect,
-  useId,
-  useMemo,
-  useRef,
-  useState,
-} from "react";
+import { ChangeEvent, useEffect, useId, useRef, useState } from "react";
 import { supabase } from "../supabase";
 import { useDispatch, useSelector } from "react-redux";
 import { WRITE_TASK_IMG_ARRAY } from "../redux/reducers/tasksReducer";
+import { StateType } from "../types";
 
 export default function FileAdder() {
   const filePicker = useRef<HTMLInputElement>(null);
@@ -18,8 +12,7 @@ export default function FileAdder() {
   }
 
   const [picture, setPicture] = useState<File | null>(null);
-  const id = useId();
-  const select = useSelector((state: any) => state.tasks.tasks.length);
+  const select = useSelector((state: StateType) => state.tasks.tasks.length);
   const bucket = "tasksImg";
   const [pictureList, setPictureList] = useState<string[]>([]);
 
@@ -63,27 +56,31 @@ export default function FileAdder() {
 
   return (
     <div className="add-file-section">
-      <button
-        onClick={() => {
-          handlePick();
-        }}
-      >
-        <input
-          ref={filePicker}
-          type="file"
-          onChange={(e) => {
-            handleChangeFiles(e);
+      <div className="add-file">
+        <button
+          onClick={() => {
+            handlePick();
           }}
-          accept="image/*,.png,.jpg,.gif"
-        />
-        <p>Add file</p>
-        <img
-          src="./svg/file-plus.svg"
-          alt="add file"
-          width={18}
-          height={18}
-        ></img>
-      </button>
+        >
+          <input
+            ref={filePicker}
+            type="file"
+            onChange={(e) => {
+              handleChangeFiles(e);
+            }}
+            accept="image/*,.png,.jpg,.gif"
+          />
+          <p>Add file</p>
+
+          <img
+            src="./svg/file-plus.svg"
+            alt="add file"
+            width={18}
+            height={18}
+          ></img>
+        </button>
+        {imageLoader == "loading" ? <span className="loader"></span> : <></>}
+      </div>
       <div className="picture-list">
         {attantion && (
           <div className="attantion">
@@ -91,7 +88,6 @@ export default function FileAdder() {
           </div>
         )}
         {pictureList.length > 0 ? (
-          //   pictureList.map((link) => {
           <div className="picture-section">
             <img
               src={pictureList?.[0]}

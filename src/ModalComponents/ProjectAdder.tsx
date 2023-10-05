@@ -2,18 +2,17 @@ import { useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   ASYNC_ADD_PROJECTS,
-  ASYNC_GET_CHENGED_PROJECTS,
-  ASYNC_GET_PROJECTS,
   GET_PROJECT_NAME_FROM_INPUT,
   OPEN_PROJECT_ADDER,
 } from "../redux/reducers/projectsReducer";
+import { StateType } from "../types";
 
 export default function ProjectAdder() {
   const dispatch = useDispatch();
   const [projectName, setProjectName] = useState("");
   const [attantion, setAttantion] = useState(false);
   const projectAdderOppened = useSelector(
-    (state: { projects: any }) => state.projects.projectAdderOpened
+    (state: StateType) => state.projects.projectAdderOpened
   );
   function inputReader(e: React.FormEvent<HTMLInputElement>) {
     setProjectName(e.currentTarget.value);
@@ -45,7 +44,8 @@ export default function ProjectAdder() {
         <h2>Project</h2>
         <input
           type="text"
-          placeholder="Введите название проекта"
+          placeholder="Enter project name"
+          autoFocus
           onInput={(e) => {
             inputReader(e);
           }}

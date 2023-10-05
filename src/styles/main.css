@@ -5,7 +5,7 @@
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 * .main {
-  width: 100%;
+  width: 100dvw;
   min-height: 100vh;
 }
 * .main .header {
@@ -14,17 +14,21 @@
   align-items: center;
   height: 40px;
   border-bottom: 1px solid rgba(112, 128, 144, 0.076);
+  cursor: pointer;
 }
 * .main .header h1 {
   font-size: 16px;
   color: rgb(143, 183, 242);
 }
+* .main li {
+  list-style: none;
+  color: rgba(149, 172, 195, 0.337);
+}
 * .main .projects {
-  padding: 12px;
   background-color: rgb(238, 244, 252);
   min-height: 100vh;
   display: flex;
-  width: 94%;
+  width: 100%;
   align-items: center;
   flex-direction: column;
   gap: 8px;
@@ -54,6 +58,11 @@
   font-size: 16px;
   cursor: pointer;
 }
+* .main .projects ul .project:hover {
+  animation: changeColorProjectCard 0.4s ease-in;
+  animation-iteration-count: 1;
+  background-color: rgba(234, 242, 255, 0.4588235294);
+}
 * .main .projects ul .project .project-action {
   display: flex;
   gap: 12px;
@@ -61,11 +70,13 @@
 }
 * .main .projects ul .project .project-action button {
   background-color: inherit;
+  cursor: pointer;
 }
 * .main .projects .add-project-btn {
   list-style: none;
   width: 96%;
   padding: 8px;
+  margin-top: 8px;
   border-radius: 4px;
   color: rgb(124, 160, 215);
   background-color: white;
@@ -76,20 +87,23 @@
   cursor: pointer;
 }
 * .main .projects .add-project-btn:hover {
-  background-color: rgba(159, 192, 242, 0.315);
+  animation: changeColor 0.4s infinite;
+  animation-iteration-count: 1;
+  background-color: rgba(193, 209, 235, 0.4588235294);
 }
 * .main .tasks-common-section {
-  padding: 12px;
   overflow-x: scroll;
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
   background-color: rgb(238, 244, 252);
-  width: 95%;
+  width: 100%;
 }
 * .main .tasks-common-section .scroll-section {
   display: flex;
   gap: 10px;
   width: 920px;
+  margin-left: 24px;
+  margin-right: 24px;
 }
 * .main .tasks-common-section .each-tasks-section {
   scroll-snap-align: center;
@@ -106,13 +120,23 @@
   display: flex;
   justify-content: space-between;
   width: 96%;
-  align-items: center;
+  align-items: start;
 }
 * .main .tasks-common-section .each-tasks-section .head button {
   background-color: inherit;
   height: 20px;
+  width: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
   font-size: 16px;
   color: slategray;
+  cursor: pointer;
+}
+* .main .tasks-common-section .each-tasks-section .head button:hover {
+  animation: plusTask 0.4s ease-in;
+  background-color: rgba(112, 128, 144, 0.218);
 }
 * .main .tasks-common-section .each-tasks-section .scroll-zone {
   overflow-y: scroll;
@@ -147,6 +171,11 @@
   padding-right: 8px;
   cursor: pointer;
 }
+* .main .tasks-common-section .task:hover {
+  animation: changeColorTaskCard 0.4s ease-in;
+  animation-iteration-count: 1;
+  background-color: rgba(234, 242, 255, 0.937254902);
+}
 * .main .tasks-common-section .task .task-priority {
   background-color: rgba(192, 60, 60, 0.731);
   border-radius: 5px;
@@ -156,7 +185,9 @@
 * .main .tasks-common-section .search {
   display: flex;
   padding: 2px;
+  margin-left: 24px;
   margin-bottom: 8px;
+  margin-top: 8px;
   align-items: start;
   gap: 8px;
   flex-direction: column;
@@ -202,7 +233,7 @@
   color: rgb(143, 183, 242);
 }
 * .modal-window-bg input {
-  width: 80%;
+  width: 86%;
   border: 1px solid rgba(143, 183, 242, 0.609);
   padding: 8px;
   border-radius: 5px;
@@ -217,7 +248,13 @@
   height: 40px;
   border-radius: 4px;
   color: white;
+  cursor: pointer;
   background-color: rgba(143, 183, 242, 0.609);
+}
+* .modal-window-bg button:hover {
+  animation: changeBtnColor 0.4 ease-in;
+  animation-iteration-count: 1;
+  background-color: rgba(126, 168, 232, 0.609);
 }
 * .modal-window-bg .task-adder-section {
   height: 540px;
@@ -226,7 +263,7 @@
   flex-direction: column;
   justify-content: space-between;
   background-color: white;
-  padding: 12px;
+  padding: 20px;
   border-radius: 5px;
 }
 * .modal-window-bg .task-adder-section .task-adder-btn-section {
@@ -240,25 +277,32 @@
   justify-content: start;
   align-items: center;
   gap: 16px;
+  height: 90%;
+  overflow-y: scroll;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
 }
 * .modal-window-bg .task-adder-section .task-adder .finish-task-section {
   display: flex;
   flex-direction: column;
   align-items: start;
   justify-content: center;
-  width: 85%;
+  width: 93%;
   gap: 8px;
 }
 * .modal-window-bg .task-adder-section .task-adder .finish-task-section .finish-task-title {
   color: slategray;
   font-size: 12px;
 }
+* .modal-window-bg .task-adder-section .task-adder .finish-task-section input {
+  width: 93%;
+}
 * .modal-window-bg .task-adder-section .task-adder .priority-section {
   width: 100%;
   display: flex;
   flex-direction: column;
   gap: 8px;
-  padding-left: 44px;
+  padding-left: 28px;
 }
 * .modal-window-bg .task-adder-section .task-adder .priority-section h3 {
   font-size: 14px;
@@ -311,6 +355,40 @@
   background-color: rgba(192, 188, 60, 0.731);
   width: 6px;
   height: 6px;
+}
+* .modal-window-bg .subtask-list {
+  width: 92%;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  gap: 8px;
+}
+* .modal-window-bg .subtask-list li {
+  word-break: break-word;
+  list-style: none;
+  color: slategray;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+}
+* .modal-window-bg .subtask-list li .check-list {
+  width: 12px;
+  height: 12px;
+  border: 1px slategray solid;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+}
+* .modal-window-bg .subtask-list .subtask-title {
+  font-size: 12px;
+  font-weight: 600;
+}
+* .modal-window-bg .add-file-section .add-file {
+  display: flex;
+  gap: 8px;
+  align-items: center;
 }
 * .modal-window-bg .add-file-section button {
   display: flex;
@@ -372,6 +450,7 @@
 }
 * .modal-window-bg .full-task-card {
   width: 300px;
+  height: 550px;
   background-color: white;
   border-radius: 4px;
   display: flex;
@@ -380,14 +459,37 @@
   align-items: center;
   padding: 12px;
   gap: 14px;
+  overflow-y: scroll;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+}
+* .modal-window-bg .full-task-card .comment-input-section {
+  display: flex;
+  justify-content: start;
+  gap: 8px;
+  width: 93%;
+  height: 37px;
+  padding-left: 12px;
+}
+* .modal-window-bg .full-task-card .comment-input-section button {
+  height: 37px;
+  cursor: pointer;
 }
 * .modal-window-bg .full-task-card .head .title {
   font-weight: 600;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 * .modal-window-bg .full-task-card .head .edit-task {
   display: flex;
   gap: 8px;
   align-items: center;
+}
+* .modal-window-bg .full-task-card .head .edit-task .edit-task-btn {
+  display: inline;
+  width: 24px;
+  cursor: pointer;
 }
 * .modal-window-bg .full-task-card .description-section {
   width: 94%;
@@ -395,6 +497,10 @@
 }
 * .modal-window-bg .full-task-card .description-section p {
   word-break: break-word;
+}
+* .modal-window-bg .full-task-card .description-section .description-edit {
+  display: flex;
+  gap: 4px;
 }
 * .modal-window-bg .full-task-card .files-section {
   width: 296px;
@@ -404,6 +510,7 @@
 }
 * .modal-window-bg .full-task-card .files-section img {
   border-radius: 5px;
+  object-fit: cover;
 }
 * .modal-window-bg .full-task-card .date-section {
   display: flex;
@@ -415,35 +522,90 @@
 * .modal-window-bg .full-task-card .date-section p {
   font-size: 12px;
 }
+* .modal-window-bg .full-task-card .comment-section {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  width: 93%;
+}
+* .modal-window-bg .full-task-card .comment-section .subcomments {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  width: 80%;
+  margin-left: 50px;
+  border-left: 1px rgba(162, 162, 224, 0.415) solid;
+  padding-left: 4px;
+}
+* .modal-window-bg .full-task-card .comment-section .comment-info-section {
+  display: flex;
+  justify-content: start;
+  gap: 8px;
+  align-items: start;
+}
+* .modal-window-bg .full-task-card .comment-section .comment-info-section .author-img {
+  background-color: #c9d0d6;
+  border-radius: 100%;
+  width: 36px;
+  height: 36px;
+}
+* .modal-window-bg .full-task-card .comment-section .comment-info-section .comment-text-section {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 4px;
+}
+* .modal-window-bg .full-task-card .comment-section .comment-info-section .comment-text-section .author-name {
+  color: #252d35;
+}
+* .modal-window-bg .full-task-card .comment-section .comment-info-section .comment-text-section .comment {
+  font-size: 14px;
+  color: #36669a;
+}
+* .modal-window-bg .full-task-card .comment-section .comment-info-section .comment-text-section .more-action-btn {
+  width: 54px;
+  height: 18px;
+}
 * .modal-window-bg .more-action-section {
   display: flex;
   justify-content: start;
   align-items: start;
-  width: 88%;
+  width: 100%;
   gap: 8px;
 }
-* .modal-window-bg .more-action-section .comment-open-btn {
+* .modal-window-bg .more-action-btn {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 4px;
   cursor: pointer;
   background-color: inherit;
-  width: 88px;
+  width: 112px;
   height: 30px;
   border-radius: 5px;
   padding: 4px;
 }
-* .modal-window-bg .more-action-section .comment-open-btn p {
+* .modal-window-bg .more-action-btn p {
   font-size: 12px;
   color: #708090;
 }
-* .modal-window-bg .more-action-section .comment-open-btn:hover {
+* .modal-window-bg .more-action-btn:hover {
   background-color: rgba(193, 209, 235, 0.4588235294);
 }
-* .modal-window-bg .more-action-section .comment-open-btn img {
+* .modal-window-bg .more-action-btn img {
   width: 18px;
   height: 18px;
+}
+* .modal-window-bg .subtask-input-section {
+  display: flex;
+  justify-content: start;
+  gap: 8px;
+  width: 93%;
+  height: 37px;
+}
+* .modal-window-bg .subtask-input-section button {
+  height: 37px;
+  cursor: pointer;
 }
 
 .dragOverTrackerRight {
@@ -467,6 +629,66 @@
   font-size: 12px;
   color: rgba(166, 39, 39, 0.824);
   margin-top: 8px;
+}
+
+.loader {
+  width: 20px;
+  height: 20px;
+  border: 5px solid #FFF;
+  border-bottom-color: #4f90b6;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes changeColor {
+  0% {
+    background-color: white;
+  }
+  100% {
+    background-color: rgba(193, 209, 235, 0.4588235294);
+  }
+}
+@keyframes changeColorProjectCard {
+  0% {
+    background-color: white;
+  }
+  100% {
+    background-color: rgba(234, 242, 255, 0.4588235294);
+  }
+}
+@keyframes changeColorTaskCard {
+  0% {
+    background-color: white;
+  }
+  100% {
+    background-color: rgba(234, 242, 255, 0.937254902);
+  }
+}
+@keyframes plusTask {
+  0% {
+    background-color: inherit;
+  }
+  100% {
+    background-color: rgba(112, 128, 144, 0.154);
+  }
+}
+@keyframes changeBtnColor {
+  0% {
+    background-color: white;
+  }
+  100% {
+    background-color: rgba(112, 128, 144, 0.218);
+  }
 }
 
 /*# sourceMappingURL=main.css.map */

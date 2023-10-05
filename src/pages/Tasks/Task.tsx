@@ -1,15 +1,17 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import FullTaskCard from "../../ModalComponents/FullTaskCard";
 import { useDispatch, useSelector } from "react-redux";
 import {
   FULL_TASK_OPENED,
+  FULL_TASK_OPENEDID,
   WRITE_DRAG_ID,
 } from "../../redux/reducers/tasksReducer";
+import { StateType, TaskType } from "../../types";
 
-export default function Task(props: { task: any }) {
+export default function Task(props: { task: TaskType }) {
   const priorityStyle = [
     {
-      priority: "hight",
+      priority: "high",
       style: "rgba(192, 60, 60, 0.731)",
     },
     {
@@ -17,7 +19,7 @@ export default function Task(props: { task: any }) {
       style: "rgba(192, 188, 60, 0.731)",
     },
     {
-      priority: "light",
+      priority: "low",
       style: "rgba(60, 192, 89, 0.731)",
     },
   ];
@@ -28,14 +30,21 @@ export default function Task(props: { task: any }) {
   const currentStyle =
     currentStyleFiltering[0] && currentStyleFiltering[0].style;
 
-  const fullCard = useSelector((state: any) => state.tasks.fullTaskOpened);
+  const fullTaskOpened = useSelector(
+    (state: StateType) => state.tasks.fullTaskOpened
+  );
 
-  console.log(fullCard);
-  function dropHandler(e: any) {
+  const [fullCard, setFullCard] = useState(false);
+  useEffect(() => {
+    if (fullTaskOpened == false) {
+      setFullCard(false);
+    }
+  }, [fullTaskOpened]);
+  function dropHandler(e: React.DragEvent<HTMLDivElement>) {
     e.preventDefault();
   }
 
-  function dragStartHandler(e: any) {
+  function dragStartHandler(e: React.DragEvent<HTMLDivElement>) {
     dispatch({ type: WRITE_DRAG_ID, payload: props.task.id });
   }
 
@@ -50,6 +59,8 @@ export default function Task(props: { task: any }) {
       onDrop={(e) => dropHandler(e)}
       onClick={() => {
         dispatch({ type: FULL_TASK_OPENED, payload: true });
+        dispatch({ type: FULL_TASK_OPENEDID, payload: props.task.id });
+        setFullCard(true);
       }}
     >
       {fullCard && (
