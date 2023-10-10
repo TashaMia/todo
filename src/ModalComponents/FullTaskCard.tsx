@@ -50,12 +50,15 @@ export default function FullTaskCard(props: {
     }
     setSubtask(e.currentTarget.value);
   }
+  const date = new Date(props.task.created);
+  const stringDate = date?.toString().split("", 21).join("");
+
   useEffect(() => {
     dispatch({ type: ASYNC_GET_SUBTASK });
     dispatch({ type: ASYNC_GET_SUBCOMMENTS });
     dispatch({ type: ASYNC_GET_COMMENTS });
   }, []);
-
+  console.log(props.task.created);
   const commentCreatorOpened = useSelector(
     (state: StateType) => state.tasks.commentCreatorOpened
   );
@@ -152,13 +155,9 @@ export default function FullTaskCard(props: {
           })}
         </div>
         <div className=" date-section">
-          <p>Start: {props.task.created}</p>
+          <p>Start: {stringDate}</p>
           <p>
-            In work ⌛:{" "}
-            <TimeAgo
-              now={() => Date.parse(new Date().toLocaleString())}
-              date={new Date(props.task.created).toISOString()}
-            />
+            In work ⌛: <TimeAgo date={props.task.created} />
           </p>
           <p>
             Needs to be completed before:{" "}

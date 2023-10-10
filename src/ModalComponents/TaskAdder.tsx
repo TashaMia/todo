@@ -60,6 +60,7 @@ export default function TaskAdder() {
     projectIndex: id && +id,
     endDate: finishTask,
   };
+  const date = new Date();
 
   return (
     <div
@@ -98,7 +99,7 @@ export default function TaskAdder() {
           <div className="finish-task-section">
             <p className="finish-task-title">Needs to be completed before:</p>
             <input
-              type="text"
+              type="date"
               placeholder="ex: 01.12.2023, 17:00"
               value={finishTask}
               onInput={(e) => {
@@ -145,7 +146,7 @@ export default function TaskAdder() {
               });
               dispatch({
                 type: WRITE_TASK_TIME,
-                payload: new Date().toLocaleString(),
+                payload: new Date(date),
               });
               dispatch({ type: ASYNC_ADD_TASK });
               dispatch({ type: OPEN_TASK_ADDER, payload: false });

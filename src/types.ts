@@ -27,7 +27,7 @@ export type StateType = {
       projectIndex: number;
       files: string[];
       subtask: string[];
-      created: string;
+      created: Date;
     };
     comment: CommentType;
     comments: CommentType[];
@@ -61,7 +61,7 @@ export type TaskType = {
   files: string[];
   subtask: string[];
   description: string;
-  created: string;
+  created: Date;
 };
 
 export type SubtaskType = {

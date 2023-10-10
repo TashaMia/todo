@@ -11,15 +11,23 @@
        
     .header{
         display: flex;
-        justify-content: center;
+        justify-content: space-between;
         align-items: center;
         height: 40px;
+        width: 100%;
         
         border-bottom: 1px solid rgba(112, 128, 144, 0.076);
        cursor: pointer;
         h1{
             font-size: 16px;
-            color: rgb(143, 183, 242);
+            color: #8fb7f2;
+        }
+        img{
+            padding-left: 8px;
+        }
+        .empty-div{
+            width: 28px;
+            height: 20px;
         }
     }
     li{

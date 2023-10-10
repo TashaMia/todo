@@ -10,9 +10,15 @@ function App() {
   return (
     <div className="main">
       <header className="header" onClick={() => navigate("/")}>
+        <img
+          src="./svg/caret-left.svg"
+          alt="go back"
+          width={20}
+          height={20}
+        ></img>
         <h1>TO DO APP</h1>
+        <div className="empty-div"> </div>
       </header>
-
       <Outlet />
       {taskAdder && <TaskAdder />}
     </div>
